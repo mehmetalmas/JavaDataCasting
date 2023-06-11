@@ -1,26 +1,56 @@
 public class WideningConversion {
     public static void main(String[] args) {
         /*
-            * byte:8 bit / short:16 bit / int : 32 bit / long:64 bit
-            * float:32 bit / double:64 bit
+            * byte:8 bit / short:16 bit / int:32 bit / long:64 bit / float:32 bit / double:64 bit
+                           char :16 bit
 
-            * byte --> short : automatic conversion
-            * short --> int : automatic conversion
-            * char --> int : automatic conversion
-            * int --> long : automatic conversion
-            * float --> double : automatic conversion
-            * float --> long : automatic conversion / loss of precision
-            * float --> int : automatic / loss of precision
-            * double --> long : automatic / loss of precision
+            * sadece atama yapilir, java otamatik cevirim yapar
+
+            * byte --> short    : byte short atama yapilir, automatic conversion
+            * short --> int     :  short int atama yapilir, automatic conversion
+            * char --> int      :  char int atama yapilir, automatic conversion
+            * int --> long      :  int long atama yapilir, automatic conversion
+            * long --> float    :  long float atama yapilir, automatic conversion
+            * float --> double  :  float double atama yapilir, automatic conversion
+            * long --> double   :  long double atama yapilir, automatic conversion
+
+
+            * byte b = Byte.MAX_VALUE;
+            * short s = Short.MAX_VALUE;
+            * int i = Integer.MAX_VALUE;
+            * long l = Long.MAX_VALUE;
+            * float f = Float.MAX_VALUE;
+            * double d = Double.MAX_VALUE;
          */
 
 
-        byte b = 126;
+        byte b = 127;
         short s = 32767;
-        int i = 2_147_483_647;
-        long l = 9_223_372_03;
-        float f = 3.1415926f;
-        double d = 179_769_313_486_231_570E308;
+        int i = 2147483647;
+        long l = 9223372036854775807L;
+        float f = 3.4028235E38f;
+        double d = 1.7976931348623157E308;
+
+        s = b;
+        l = i;
+
+        f = i;
+        System.out.println(i);         // 2_147_483_647
+        System.out.println(f);         // 2_147_483_65E9  !!!
+
+        l = 111_222_333_444_555_666L;
+        f = l;                         // long = 64 bit / float = 32 bit
+        System.out.println(l);         // 111_222_333_444_555_666
+        System.out.println(f);         // 111_222_336_E17 : Loss of precision
+
+        d = l;                         // double = 64 bit / long = 64 bit
+        System.out.println(l);         // 111222333444555666
+        System.out.println(d);         // 111222333444555664E17  !!!
+
+        d = f;
+        System.out.println(f);         // 111222336E17
+        System.out.println(d);         // 111222335658262528E17 !!!
+
 
 
 
