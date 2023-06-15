@@ -25,7 +25,7 @@ public class WideningConversion {
          */
 
         byte byteType = 10;
-        short shortType; char charType = 'a';
+        short shortType; char charType = 65;
         int intType;
         long logType;
         float floatType;
@@ -42,17 +42,22 @@ public class WideningConversion {
 
         byte b = 127;
         short s = 32767;
-        int i = 2147483647;
-        long l = 9223372036854775807L;
-        float f = 3.4028235E38f;
-        double d = 1.7976931348623157E308;
 
         s = b;
+
+        int i = 2147483647;
+        long l = 9223372036854775807L;
+
         l = i;
+
+        float f = 3.4028235E38f;
 
         f = i;
         System.out.println(i);         // 2_147_483_647
         System.out.println(f);         // 2_147_483_65E9  !!!
+
+        double d = 1.7976931348623157E308;
+
 
         l = 111_222_333_444_555_666L;
         f = l;                         // long = 64 bit / float = 32 bit
