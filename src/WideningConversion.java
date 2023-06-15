@@ -1,8 +1,9 @@
 public class WideningConversion {
     public static void main(String[] args) {
         /*
-            * byte:8 bit / short:16 bit / int:32 bit / long:64 bit / float:32 bit / double:64 bit
-                           char :16 bit
+            windening conversion:
+            byte:8 bit / short:16 bit / int:32 bit / long:64 bit / float:32 bit / double:64 bit
+                         char :16 bit
 
             * sadece atama yapilir, java otamatik cevirim yapar
 
@@ -22,6 +23,21 @@ public class WideningConversion {
             * float f = Float.MAX_VALUE;
             * double d = Double.MAX_VALUE;
          */
+
+        byte byteType = 10;
+        short shortType; char charType = 'a';
+        int intType;
+        long logType;
+        float floatType;
+        double doubleType;
+
+        shortType = byteType; intType = byteType;  logType = byteType;  floatType = byteType;   doubleType = byteType;  // byte
+                              intType = shortType; logType = shortType; floatType = shortType;  doubleType = shortType; // short
+                              intType = charType;  logType = charType;  floatType = charType;   doubleType = charType;  // char
+                                                   logType = intType;   floatType = intType;    doubleType = intType;   // int
+                                                                        floatType = logType;    doubleType = logType;   // log
+                                                                                                doubleType = floatType; // float
+
 
 
         byte b = 127;
@@ -50,6 +66,9 @@ public class WideningConversion {
         d = f;
         System.out.println(f);         // 111222336E17
         System.out.println(d);         // 111222335658262528E17 !!!
+
+
+
 
 
 
